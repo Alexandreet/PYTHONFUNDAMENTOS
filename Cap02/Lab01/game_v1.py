@@ -3,16 +3,18 @@
 from tkinter import *
 import random
 import time
-
+# This is a string 
 level = int(input("Qual nível você gostaria de jogar? 1/2/3/4/5 \n"))
 length = 500/level
 
 
 root = Tk()
+# This is a string
 root.title("Ping Pong")
 root.resizable(0,0)
 root.wm_attributes("-topmost", -1)
 
+#Cavan will determinate the size of the screen presented
 canvas = Canvas(root, width=800, height=600, bd=0,highlightthickness=0)
 canvas.pack()
 
@@ -29,10 +31,12 @@ class Bola:
         self.id = canvas.create_oval(0, 0, 15, 15, fill=color)
         self.canvas.move(self.id, 245, 200)
 
+        #This is a list made only of int
         starts_x = [-3, -2, -1, 1, 2, 3]
         random.shuffle(starts_x)
-
+        #Variable x declaration
         self.x = starts_x[0]
+        #Variable y declaration
         self.y = -3
 
         self.canvas_height = self.canvas.winfo_height()
@@ -43,13 +47,16 @@ class Bola:
         self.canvas.move(self.id, self.x, self.y)
 
         pos = self.canvas.coords(self.id)
-
+        
+        # This is a condicional followed by and index 
         if pos[1] <= 0:
             self.y = 3
 
+        # This is a condicional followed by and index
         if pos[3] >= self.canvas_height:
             self.y = -3
 
+        # This is a condicional followed by and index
         if pos[0] <= 0:
             self.x = 3
             
@@ -63,7 +70,9 @@ class Bola:
             if pos[3] >= self.Barra_pos[1] and pos[3] <= self.Barra_pos[3]:
                 self.y = -3
                 global count
+                #This is a Atribuition variable
                 count +=1
+                #This is also a variable
                 score()
 
 
@@ -126,9 +135,11 @@ def start_game(event):
 
 
 def score():
+    #This is a string
     canvas.itemconfig(score_now, text="Pontos: " + str(count))
 
 def game_over():
+    #This is a string
     canvas.itemconfig(game, text="Game over!")
 
 
