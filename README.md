@@ -1,8 +1,5 @@
 # Python Fundamentos
 
-Data Science Academy - Repositório dos Arquivos do Curso Gratuito Python Fundamentos para Análise de Dados.
-
-https://www.datascienceacademy.com.br
-
+Repositório Pessoal para o Curso – Python Fundamentos da Data Science Academy com conteúdo original do curso e execução pessoal do código
 
 
