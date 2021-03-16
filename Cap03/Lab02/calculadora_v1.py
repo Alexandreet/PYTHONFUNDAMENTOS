@@ -37,15 +37,15 @@ if int(selectOper) == 1:
 
 elif int(selectOper) == 2:
     subtNum(int(primeiroNum), int(segundoNum))
-    print('%s + %s = %s' %(primeiroNum,segundoNum, subtNum(int(primeiroNum),int(segundoNum))))
+    print('%s - %s = %s' %(primeiroNum,segundoNum, subtNum(int(primeiroNum),int(segundoNum))))
 
 elif int(selectOper) == 3:
     multNum(int(primeiroNum), int(segundoNum))
-    print('%s + %s = %s' %(primeiroNum,segundoNum, multNum(int(primeiroNum),int(segundoNum))))
+    print('%s * %s = %s' %(primeiroNum,segundoNum, multNum(int(primeiroNum),int(segundoNum))))
 
 elif int(selectOper) == 4:
     divNum(int(primeiroNum), int(segundoNum))
-    print('%s + %s = %s' %(primeiroNum,segundoNum, divNum(int(primeiroNum),int(segundoNum))))
+    print('%s ÷ %s = %s' %(primeiroNum,segundoNum, divNum(int(primeiroNum),int(segundoNum))))
 
 else:
     print("Operação Inválida")
