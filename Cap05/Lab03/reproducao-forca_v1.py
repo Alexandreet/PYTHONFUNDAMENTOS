@@ -67,7 +67,6 @@ O   |
 
 corrc_letter = []
 wrong_letter = []
-entrada = []
 
 # Classe
 class Hangman:
@@ -89,9 +88,9 @@ class Hangman:
 	
 	# Método para verificar se o jogo terminou
 	def hangman_over(self):
-		if len(wrong_letter) == 6:
+		if len(corrc_letter) == len(self.word):
 			return True
-		elif len(corrc_letter) == len(self.word):
+		elif len(wrong_letter) == 6:
 			return True
 		else:
 			return False
@@ -108,7 +107,10 @@ class Hangman:
 	def hide_word(self):
 		hidden_word = ""
 		for letter in self.word:
-			hidden_word += "_"
+			if letter in corrc_letter:
+				hidden_word += letter
+			else:
+				hidden_word += "_"
 		print(hidden_word)
 		
 	# Método para checar o status do game e imprimir o board na tela
@@ -117,7 +119,6 @@ class Hangman:
 		print("Palavra: "), self.hide_word()
 		print("Letras Erradas: ", wrong_letter)
 		print("Letras Corretas: ", corrc_letter)	
-
 
 
 # Função para ler uma palavra de forma aleatória do banco de palavras
@@ -133,25 +134,19 @@ def main():
 	# Objeto
 	game = Hangman(rand_word())
 
-	# Enquanto o jogo não tiver terminado, print do status, solicita uma letra e faz a leitura do caracter
-	while game.hangman_over == False:
+	# Loop while, enquanto o jogo não tiver terminado, print do status, solicita uma letra e 
+	# faz a leitura do caracter, depois retorna ao loop até que o jogo tenha terminado
+	while game.hangman_over() == False:
 		game.show_game_status()
-	#	print("Palavra: "), game.hide_word()
-	#	print("Letras Erradas: ", wrong_letter)
-	#	print("Letras Corretas: ", corrc_letter)
 		game.guess(input("Digite uma letra: "))
 	
-	
-
-
-
-	# Verifica o status do jogo
-	game.show_game_status()
-
+	# Verifica o status do jogo <--- desnecessario 
 	# De acordo com o status, imprime mensagem na tela para o usuário
 	if game.hangman_won():
+		game.show_game_status()
 		print ('\nParabéns! Você venceu!!')
 	else:
+		game.show_game_status()
 		print ('\nGame over! Você perdeu.')
 		print ('A palavra era ' + game.word)
 		
