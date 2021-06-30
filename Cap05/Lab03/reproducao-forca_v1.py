@@ -105,8 +105,8 @@ class Hangman:
 			return False
 
 	# Método para não mostrar a letra no board
-	def hide_word(self, hidden_word):
-		self.hidden_word = hidden_word
+	def hide_word(self):
+		hidden_word = ""
 		for letter in self.word:
 			hidden_word += "_"
 		print(hidden_word)
